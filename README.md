@@ -2,4 +2,4 @@
 Deep Learning Based Steatosis Segmentation
 
 ## Introduction
-In this study we developed CNN based model for delineating the boundaries of overlapped Steatosis droplets in liver whole-slide images. 
+CNN based model for delineating the boundaries of overlapped Steatosis droplets in whole-slide liver histopathology images. 
