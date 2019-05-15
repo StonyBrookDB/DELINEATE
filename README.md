@@ -6,18 +6,18 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 
 ### dil-Unet
 **Installing reqirement**
-Its recommended to install the requirements in a [conda virtual environment](https://conda.io/docs/using/envs.html#create-an-environment)
+* Its recommended to install the requirements in a [conda virtual environment](https://conda.io/docs/using/envs.html#create-an-environment)
   ```
   pip install -r requirement_Unet_FCN.txt
   ```
-- Check loader.py inside dil-Unet folder to organize the train/test data hierarchy 
-- Set necessary hpyerparameters and run train.py 
+* Check loader.py inside dil-Unet folder to organize the train/test data hierarchy 
+* Set necessary hpyerparameters and run train.py 
 
   ```
   cd dil-Unet
   python train.py --data_path ./datasets --checkpoint_path ./checkpoints/ --imSize 512
   ```
-- We can visualize the train loss, dice score, learning rate, output mask, and first layer convolutional kernels per iteration in tensorboard
+* We can visualize the train loss, dice score, learning rate, output mask, and first layer convolutional kernels per iteration in tensorboard
 
   ```
   tensorboard --logdir=train_log/
@@ -30,7 +30,13 @@ Its recommended to install the requirements in a [conda virtual environment](htt
   ```
 
 ### HNN
-
+## Installing requirements
+Its recommended to install the requirements in a [conda virtual environment](https://conda.io/docs/using/envs.html#create-an-environment)
+```
+cd holy-edge
+pip install -r requirements.txt
+export OMP_NUM_THREADS=1
+```
 
 
 ### FCN-8s
