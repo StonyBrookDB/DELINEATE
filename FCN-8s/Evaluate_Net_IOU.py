@@ -18,8 +18,8 @@ import BuildNetVgg16
 import CheckVGG16Model
 #......................................................................................................................................
 logs_dir= "logs/"# "path to logs directory where trained model and information will be stored"
-Label_Dir="Data_Zoo/Materials_In_Vessels/LiquidSolidLabels/"# Annotetion in png format for train images and validation images (assume the name of the images and annotation images are the same (but annotation is always png format))
-Image_Dir="Data_Zoo/Materials_In_Vessels/Test_Images_All/"# Test image folder
+Label_Dir="Data_Zoo/Steatosis_Datasets/Train_Label/"# Annotetion in png format for train images and validation images (assume the name of the images and annotation images are the same (but annotation is always png format))
+Image_Dir="Data_Zoo/Steatosis_Datasets/Test_Image/"# Test image folder
 model_path="Model_Zoo/vgg16.npy"# "Path to pretrained vgg16 model for encoder"
 
 #-------------------------------------------------------------------------------------------------------------------------
