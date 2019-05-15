@@ -6,7 +6,7 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 
 ### dil-Unet
 
-*Installing reqirement*
+**Installing reqirement**
 
 - Its recommended to install the requirements in a [conda virtual environment](https://conda.io/docs/using/envs.html#create-an-environment)
   ```
@@ -33,7 +33,7 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 
 ### HNN
 
-*Installing requirements*
+**Installing requirements**
 
 ```
 cd HNN/holy-edge
