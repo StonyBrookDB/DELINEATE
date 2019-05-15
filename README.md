@@ -8,11 +8,14 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 
 **Usage**
 
-Installing requirements
+  Installing requirements
 - Its recommended to install the requirements in a [conda virtual environment](https://conda.io/docs/using/envs.html#create-an-environment)
   ```
   pip install -r requirement_Unet_FCN.txt
   ```
+  
+**Seting up**
+
 - Check loader.py inside dil-Unet folder to organize the train/test data hierarchy 
 - Set necessary hpyerparameters and run train.py 
 
@@ -43,7 +46,7 @@ pip install -r requirements.txt
 export OMP_NUM_THREADS=1
 ```
 
-**Seting up**
+**Setting up**
 
 - Edit the [config file](https://github.com/mousumi12/DELINEATE/tree/master/HNN/holy-edge/hed/configs/hed.yaml) located at `hed/configs/hed.yaml`. Set the paths below. Make sure the directories exist and you have read/write permissions on them.
 The HNN model is trained on (http://vcl.ucsd.edu/hed/HED-BSDS.tar) set created by the authors.
