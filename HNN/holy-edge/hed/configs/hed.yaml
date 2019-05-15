@@ -1,8 +1,7 @@
 # Before you do anything please set download_path
-# or the location where you have downloaded the rar_file
-# snapshot for now : /nas2/harsimrat/hed-testing-deconv-hist-4/models/hed-model-5000
+# or the location where you have downloaded the rar_file 
 rar_file: 'http://vcl.ucsd.edu/hed/HED-BSDS.tar'
-# location where HED-BSDS.tar would be downloaded and decompressed (Should already exist)
+# location where HNN-steatosis.tar would be downloaded and decompressed (Should already exist)
 download_path: '/data/scratch/mnroy/Steatosis_Project/DL/Model3_UnetHEDFCN/V2_512x512im/NewVersion_DataShuffle/DELINEATE/HED/hed-data'
 # location of snapshot and tensorbaord summary events (Should already exist)
 save_dir: /data/scratch/mnroy/Steatosis_Project/DL/Model3_UnetHEDFCN/V2_512x512im/NewVersion_DataShuffle/DELINEATE/HED/holy-edge/hed
