@@ -6,6 +6,7 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 
 ### dil-Unet
 **Installing reqirement**
+
 *Its recommended to install the requirements in a [conda virtual environment](https://conda.io/docs/using/envs.html#create-an-environment)
   ```
   pip install -r requirement_Unet_FCN.txt
@@ -31,7 +32,7 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 
 ### HNN
 **Installing requirements**
-*Its recommended to install the requirements in a [conda virtual environment](https://conda.io/docs/using/envs.html#create-an-environment)
+
 ```
 cd HNN/holy-edge
 pip install -r requirements.txt
@@ -39,8 +40,10 @@ export OMP_NUM_THREADS=1
 ```
 
 **Seting up**
-Edit the [config file](https://github.com/harsimrat-eyeem/holy-edge/blob/master/hed/configs/hed.yaml) located at `HNN/configs/hed.yaml`. Set the paths below. Make sure the directories exist and you have read/write permissions on them.
-The HNN model is trained on [augmented training](http://vcl.ucsd.edu/hed/HED-BSDS.tar) set created by the authors.
+
+* Edit the [config file](https://github.com/mousumi12/DELINEATE/tree/master/HNN/holy-edge/hed/configs/hed.yaml) located at `HNN/holy-edge/hed/configs/hed.yaml`. Set the paths below. Make sure the directories exist and you have read/write permissions on them.
+The HNN model is trained on (http://vcl.ucsd.edu/hed/HED-BSDS.tar) set created by the authors.
+
 ```
 # location where training data : http://vcl.ucsd.edu/hed/HED-BSDS.tar would be downloaded and decompressed
 download_path: '<path>'
