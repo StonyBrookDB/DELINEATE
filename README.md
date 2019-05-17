@@ -9,7 +9,7 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 **Usage**
 
   Installing requirements
-- Its recommended to install the requirements in a [conda virtual environment](https://conda.io/docs/using/envs.html#create-an-environment)
+- Its recommended to install the requirements in a [conda virtual environment]
   ```
   pip install -r requirement_Unet_FCN.txt
   ```
@@ -61,7 +61,10 @@ test_output: '<path>'
 ```
 
 **VGG-16 base model**
-VGG base model available [here](https://github.com/machrisaa/tensorflow-vgg) is used for producing multi-level features. The model is modified according with Section (3.) of the [paper](https://arxiv.org/pdf/1504.06375.pdf). Deconvolution layers are set with [tf.nn.conv2d_transpose](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d_transpose). The model uses single deconvolution layer in each side layers. Another implementation uses [stacked](https://github.com/ppwwyyxx/tensorpack/blob/master/examples/HED/hed.py#L35) bilinear deconvolution layers. In this implementation the upsampling parameters are learned while finetuning of the model. Pre-trained weights for [VGG-16](https://mega.nz/#!YU1FWJrA!O1ywiCS2IiOlUCtCpI6HTJOMrneN-Qdv3ywQP5poecM) are provided by [git-lfs](https://github.com/harsimrat-eyeem/holy-edge/blob/master/hed/models/vgg16.npy) in this repo.
+VGG base model available [here](https://github.com/machrisaa/tensorflow-vgg) is used for producing multi-level features. The model is modified according with Section (3.) of the [paper](https://arxiv.org/pdf/1504.06375.pdf). Deconvolution layers are set with [tf.nn.conv2d_transpose](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d_transpose). The model uses single deconvolution layer in each side layers. Another implementation uses [stacked](https://github.com/ppwwyyxx/tensorpack/blob/master/examples/HED/hed.py#L35) bilinear deconvolution layers. In this implementation the upsampling parameters are learned while finetuning of the model. A pre-trained vgg16 net can be download from here[https://drive.google.com/file/d/0B6njwynsu2hXZWcwX0FKTGJKRWs/view?usp=sharing] or from here [ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy]
+
+
+Pre-trained weights for [VGG-16](https://mega.nz/#!YU1FWJrA!O1ywiCS2IiOlUCtCpI6HTJOMrneN-Qdv3ywQP5poecM) are provided by [git-lfs](https://github.com/harsimrat-eyeem/holy-edge/blob/master/hed/models/vgg16.npy) in this repo.
 
 - Launch training
 ```
@@ -84,4 +87,38 @@ feh <test_output>
 ```
 ### FCN-8s
 
+**Details input/output**
+The input for the net is RGB image (Figure 1 right).
+The net produces pixel-wise annotation as a matrix in the size of the image with the value of each pixel corresponding to its class (Figure 1 left).
+
+**Setup**
+Download a pre-trained vgg16 net and put in the /Model_Zoo subfolder in the main code folder. A pre-trained vgg16 net can be download from here[https://drive.google.com/file/d/0B6njwynsu2hXZWcwX0FKTGJKRWs/view?usp=sharing] or from here [ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy]
+
+**Instructions for training (in TRAIN.py)**
+
+- In: TRAIN.py
+  1) Set folder of the training images in Train_Image_Dir
+  2) Set folder for the ground truth labels in Train_Label_DIR
+  3) The Label Maps should be saved as png image with the same name as the corresponding image and png ending
+  4) Download a pretrained [vgg16](ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy) model and put in model_path (should be    done automatically if you have internet connection)
+  5) Set number of classes/labels in NUM_CLASSES
+  6) If you are interested in using validation set during training, set UseValidationSet=True and the validation image folder to Valid_Image_Dir and set the folder with ground truth labels for the validation set in Valid_Label_Dir
+  
+**Instructions for predicting pixelwise annotation using trained net (in Inference.py)**
+
+- In: Inference.py
+  1) Make sure you have trained model in logs_dir (See Train.py for creating trained model)
+  2) Set the Image_Dir to the folder where the input images for prediction are located.
+  3) Set the number of classes in NUM_CLASSES
+  4) Set  folder where you want the output annotated images to be saved to Pred_Dir
+  5) Run script
+
+**Evaluating net performance using intersection over union (IOU):**
+
+-In: Evaluate_Net_IOU.py
+  1) Make sure you have trained model in logs_dir (See Train.py for creating trained model)
+  2) Set the Image_Dir to the folder where the input images for prediction are located
+  3) Set folder for ground truth labels in Label_DIR. The Label Maps should be saved as png image with the same name as the corresponding image and png ending
+  4) Set number of classes number in NUM_CLASSES
+  5) Run script
 
