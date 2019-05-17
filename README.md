@@ -30,8 +30,27 @@ Input image                          |  Region Prediction
 **Seting up**
 
 - The dataset folder is arranged according to the code structure requirement with one sample image inside each such folder
-- We suggest to check loader.py inside dil-Unet folder to organize the train/test data hierarchy 
-- Set necessary hpyerparameters and run train.py 
+- The train/test data hierarchy should be organized in the following manner
+
+```
+    Use the Keras data generators to load train and test
+    Image and label are in structure:
+        train/
+            img/
+                0/
+            gt/
+                0/
+
+        test/
+            img/
+                0/
+            gt/
+                0/
+
+```
+
+- Set up the necessary hpyerparameters 
+- Launch training 
 
   ```
   cd dil-Unet
@@ -44,7 +63,7 @@ Input image                          |  Region Prediction
   ``` 
 - When checkpoints are saved, we can use eval.py to test an input image with an arbitrary size.
 
-- Evaluate your model
+- Launch evaluation (evaluate your model)
   ```
   python eval.py --data_path ./datasets/test/ --load_from_checkpoint ./checkpoints/model-7049 --batch_size 1 --imSize 512
   ```
@@ -70,7 +89,9 @@ export OMP_NUM_THREADS=1
 
 **Setting up**
 
-- Edit the [config file](https://github.com/mousumi12/DELINEATE/tree/master/HNN/holy-edge/hed/configs/hed.yaml) located at `hed/configs/hed.yaml`. Set the paths below. Make sure the directories exist and you have read/write permissions on them.
+- First step is to edit the [config file](https://github.com/mousumi12/DELINEATE/tree/master/HNN/holy-edge/hed/configs/hed.yaml) located at `hed/configs/hed.yaml`. 
+
+Set the paths below. Make sure the directories exist and you have read/write permissions on them.
 The HNN model is trained on (http://vcl.ucsd.edu/hed/HED-BSDS.tar) set created by the authors.
 
 ```
