@@ -6,7 +6,7 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 
 ### dil-Unet
 
-Input image                          |  Region Prediction Image  
+Input image                          |  Region Prediction  
 :-----------------------------------:|:----------------------------------:
 <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Original.png" width="280" height="250">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_region.png" width="280" height="250">
 
@@ -40,6 +40,10 @@ Input image                          |  Region Prediction Image
   ```
 
 ### HNN
+
+Input image                          |    Boundary Detection  
+:-----------------------------------:|:----------------------------------:
+<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Original.png" width="280" height="250">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_boundary.png" width="280" height="250">
 
 **Usage**
 
@@ -92,6 +96,10 @@ feh <test_output>
 ### FCN-8s
 
 **Details input/output**
+
+Region Pediction           |  Boundary Detection       |    Final Prediction
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_region.png" width="280" height="250">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_boundary.png" width="280" height="250"> | <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_finalPred.png" width="280" height="250">
 
 - The input for the net is RGB image (Figure 1 right).
 The net produces pixel-wise annotation as a matrix in the size of the image with the value of each pixel corresponding to its class (Figure 1 left).
