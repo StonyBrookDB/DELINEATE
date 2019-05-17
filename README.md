@@ -6,9 +6,9 @@ CNN based model for delineating the boundaries of overlapped Steatosis droplets 
 
 ### dil-Unet
 
-Input image                |  Region Prediction Image  
-:-------------------------:|:-------------------------:
-<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Original.png" width="280" height="280">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_region.png" width="280" height="280">
+Input image                          |  Region Prediction Image  
+:-----------------------------------:|:----------------------------------:
+<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Original.png" width="280" height="250">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_region.png" width="280" height="250">
 
 **Usage**
 
