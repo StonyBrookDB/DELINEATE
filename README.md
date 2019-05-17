@@ -4,23 +4,33 @@ Deep Learning Based Steatosis Segmentation
 ## Introduction
 CNN based model for delineating the boundaries of overlapped Steatosis droplets in whole-slide liver histopathology images. This project has three phases, first dil-Unet is used for steatosis region prediction and HNN model is used for boundary detection followed by the third model FCN-8s is used for integrating region and boundary information to generate the final prediction result. 
 
+## Get this repo
+```
+git clone https://github.com/mousumi12/DELINEATE.git
+```
+
 ### dil-Unet
+
+**Details input/output**
+
+- The input of the region prediction/dil-Unet model is RGB image containing multiple overlapped steatosis droplets(Figure left). The dil-Unet model produces pixel-wise classification having the same size of the original image. The value of each pixel corresponds to its class label (Figure right). There are two class labels where red corresponds to steatosis pixel and black corresponds to background/ non steatosis pixels.
 
 Input image                          |  Region Prediction  
 :-----------------------------------:|:----------------------------------:
-<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Original.png" width="280" height="250">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_region.png" width="280" height="250">
+<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Original.png" width="200" height="180">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_region.png" width="200" height="180">
 
 **Usage**
 
   Installing requirements
-- Its recommended to install the requirements in a [conda virtual environment]
+- Its recommended to install the requirements in a [conda virtual environment]. 
   ```
   pip install -r requirement_Unet_FCN.txt
   ```
   
 **Seting up**
 
-- Check loader.py inside dil-Unet folder to organize the train/test data hierarchy 
+- The dataset folder is arranged according to the code structure requirement with one sample image inside each such folder
+- We suggest to check loader.py inside dil-Unet folder to organize the train/test data hierarchy 
 - Set necessary hpyerparameters and run train.py 
 
   ```
@@ -41,9 +51,13 @@ Input image                          |  Region Prediction
 
 ### HNN
 
+**Details input/output**
+
+- The input of the HNN model is RGB image containing multiple overlapped steatosis droplets(Figure left). The HNN model produces the edge maps from side layers generated at 5k iterations. The final edge mapp is genarated as teh 5-th side output from HNN model (Figure right). 
+
 Input image                          |    Boundary Detection  
 :-----------------------------------:|:----------------------------------:
-<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Original.png" width="280" height="250">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_boundary.png" width="280" height="250">
+<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Original.png" width="200" height="180">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_boundary.png" width="200" height="180">
 
 **Usage**
 
@@ -69,10 +83,9 @@ test_output: '<path>'
 ```
 
 **VGG-16 base model**
-VGG base model available [here](https://github.com/machrisaa/tensorflow-vgg) is used for producing multi-level features. The model is modified according with Section (3.) of the [paper](https://arxiv.org/pdf/1504.06375.pdf). Deconvolution layers are set with [tf.nn.conv2d_transpose](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d_transpose). The model uses single deconvolution layer in each side layers. Another implementation uses [stacked](https://github.com/ppwwyyxx/tensorpack/blob/master/examples/HED/hed.py#L35) bilinear deconvolution layers. In this implementation the upsampling parameters are learned while finetuning of the model. A pre-trained vgg16 net can be download from here[https://drive.google.com/file/d/0B6njwynsu2hXZWcwX0FKTGJKRWs/view?usp=sharing] or from here [ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy]
+VGG base model is available [here](https://github.com/machrisaa/tensorflow-vgg) used for producing multi-level features. The model is modified according with Section (3.) of the [paper](https://arxiv.org/pdf/1504.06375.pdf). Deconvolution layers are set with [tf.nn.conv2d_transpose](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d_transpose). The model uses single deconvolution layer in each side layers. Another implementation uses [stacked](https://github.com/ppwwyyxx/tensorpack/blob/master/examples/HED/hed.py#L35) bilinear deconvolution layers. 
+The upsampling parameters are learned while finetuning of the model for this implementation. A pre-trained vgg16 net can be download from here[https://drive.google.com/file/d/0B6njwynsu2hXZWcwX0FKTGJKRWs/view?usp=sharing] or from here [ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy]
 
-
-Pre-trained weights for [VGG-16](https://mega.nz/#!YU1FWJrA!O1ywiCS2IiOlUCtCpI6HTJOMrneN-Qdv3ywQP5poecM) are provided by [git-lfs](https://github.com/harsimrat-eyeem/holy-edge/blob/master/hed/models/vgg16.npy) in this repo.
 
 - Launch training
 ```
@@ -99,10 +112,10 @@ feh <test_output>
 
 Region Pediction           |  Boundary Detection       |    Final Prediction
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_region.png" width="280" height="250">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_boundary.png" width="280" height="250"> | <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_finalPred.png" width="280" height="250">
+<img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_region.png" width="200" height="180">  |  <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_boundary.png" width="200" height="180"> | <img src="https://github.com/mousumi12/DELINEATE/blob/master/Images/Steat_finalPred.png" width="200" height="180">
 
-- The input for the net is RGB image (Figure 1 right).
-The net produces pixel-wise annotation as a matrix in the size of the image with the value of each pixel corresponding to its class (Figure 1 left).
+- The region and boundary predictions are combined and used to generate the final steatosis prediction using FCN-8s model. 
+The net produces pixel-wise clasiification similar to the size of the image with the value of each pixel corresponding to its class (Figure right) where three classes corresponds to the backgorund, steatosis boundary and region pixel.
 
 **Setup**
 
