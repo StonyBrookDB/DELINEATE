@@ -92,7 +92,7 @@ export OMP_NUM_THREADS=1
 - First step is to edit the [config file](https://github.com/mousumi12/DELINEATE/tree/master/HNN/holy-edge/hed/configs/hed.yaml) located at `hed/configs/hed.yaml`. 
 
 Set the paths below. Make sure the directories exist and you have read/write permissions on them.
-The HNN model is trained on (http://vcl.ucsd.edu/hed/HED-BSDS.tar) set created by the authors.
+The HNN model is trained on (https://figshare.com/s/381f3c0200c87cae259e) dataset generated from Whole-slide images of liver tissue.
 
 ```
 # location where training data : https://figshare.com/s/381f3c0200c87cae259e can be downloaded and decompressed
