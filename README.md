@@ -95,7 +95,7 @@ Set the paths below. Make sure the directories exist and you have read/write per
 The HNN model is trained on (http://vcl.ucsd.edu/hed/HED-BSDS.tar) set created by the authors.
 
 ```
-# location where training data : http://vcl.ucsd.edu/hed/HED-BSDS.tar would be downloaded and decompressed
+# location where training data : https://figshare.com/s/381f3c0200c87cae259e can be downloaded and decompressed
 download_path: '<path>'
 # location of snapshot and tensorbaord summary events
 save_dir: '<path>'
