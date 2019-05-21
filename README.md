@@ -42,6 +42,7 @@ Input image                          |  Region Prediction
                 0/
 
         test/
+          val/
             img/
                 0/
             gt/
