@@ -144,6 +144,8 @@ The net produces pixel-wise clasiification similar to the size of the image with
 
 - Download a pre-trained vgg16 net and put in the /Model_Zoo subfolder in the main code folder. A pre-trained vgg16 net can be download from here[https://drive.google.com/file/d/0B6njwynsu2hXZWcwX0FKTGJKRWs/view?usp=sharing] or from here [ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy]
 
+[https://figshare.com/s/8088dd00b29bcdf6cd6f] Use the dataset created from stage-1 results i.e. region boundary integrated results for training FCN-8s.
+
 **Instructions for training (in TRAIN.py)**
 
 - In: TRAIN.py
