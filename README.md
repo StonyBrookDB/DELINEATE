@@ -48,6 +48,7 @@ Input image                          |  Region Prediction
                 0/
 
 ```
+The dataset (https://figshare.com/s/d75b129d969b4f463168) is created for region extraction model. The training data can be downloaded and decompressed.
 
 - Set up the necessary hpyerparameters 
 - Launch training 
