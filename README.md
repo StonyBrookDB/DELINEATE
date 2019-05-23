@@ -29,7 +29,7 @@ Input image                          |  Region Prediction
   
 **Seting up**
 
-- The dataset folder is arranged according to the code structure requirement with one sample image inside each such folder
+- The dataset folder is arranged according to the code structure requirement with one sample image inside each such folder.
 - The train/test data hierarchy should be organized in the following manner
 
 ```
