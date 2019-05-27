@@ -174,3 +174,4 @@ The net produces pixel-wise clasiification similar to the size of the image with
   4) Set number of classes number in NUM_CLASSES
   5) Run script
 
+TEST:
