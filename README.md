@@ -107,8 +107,7 @@ test_output: '<path>'
 
 **VGG-16 base model**
 VGG base model is available [here](https://github.com/machrisaa/tensorflow-vgg) used for producing multi-level features. The model is modified according with Section (3.) of the [paper](https://arxiv.org/pdf/1504.06375.pdf). Deconvolution layers are set with [tf.nn.conv2d_transpose](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d_transpose). The model uses single deconvolution layer in each side layers. Another implementation uses [stacked](https://github.com/ppwwyyxx/tensorpack/blob/master/examples/HED/hed.py#L35) bilinear deconvolution layers. 
-The upsampling parameters are learned while finetuning of the model for this implementation. A pre-trained vgg16 net can be download from here[https://drive.google.com/file/d/0B6njwynsu2hXZWcwX0FKTGJKRWs/view?usp=sharing] or from here [ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy]
-
+The upsampling parameters are learned while finetuning of the model for this implementation. A pre-trained vgg16 net can be download from here[https://figshare.com/s/5c810c317ecd42257eeb].
 
 - Launch training
 ```
