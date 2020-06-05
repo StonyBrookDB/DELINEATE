@@ -141,7 +141,7 @@ The net produces pixel-wise clasiification similar to thesize of the image with 
 
 **Setup**
 
-- Download a pre-trained vgg16 net and put in the /Model_Zoo subfolder in the main code folder. A pre-trained vgg16 net can be download from here[https://drive.google.com/file/d/0B6njwynsu2hXZWcwX0FKTGJKRWs/view?usp=sharing] or from here [ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy]
+- Download a pre-trained vgg16 net and put in the /Model_Zoo subfolder in the main code folder. A pre-trained vgg16 net can be download from here[https://figshare.com/s/5c810c317ecd42257eeb].
 
 [https://figshare.com/s/8088dd00b29bcdf6cd6f] Use the dataset created from stage-1 results i.e. region boundary integrated results for training FCN-8s.
 
@@ -151,7 +151,7 @@ The net produces pixel-wise clasiification similar to thesize of the image with 
    1) Set folder of the training images in Train_Image_Dir
    2) Set folder for the ground truth labels in Train_Label_DIR
    3) The Label Maps should be saved as png image with the same name as the corresponding image and png ending
-   4) Download a pretrained [vgg16](ftp://mi.eng.cam.ac.uk/pub/mttt2/models/vgg16.npy) model and put in model_path (should be    done automatically if you have internet connection)
+   4) Download a pretrained [vgg16](https://figshare.com/s/5c810c317ecd42257eeb) model and put in model_path (should be    done automatically if you have internet connection)
    5) Set number of classes/labels in NUM_CLASSES
    6) If you are interested in using validation set during training, set UseValidationSet=True and the validation image folder  to Valid_Image_Dir and set the folder with ground truth labels for the validation set in Valid_Label_Dir
   
